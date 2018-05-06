@@ -1,10 +1,10 @@
 # indexed-git - Add files to git using it's index ie not with it's filename.
 
-##ut stands for untracked files.
-##nt stands for notstaged tracked files.
+## ut stands for untracked files.
+##  nt stands for notstaged tracked files.
 ##st stands for staged files.
 
-###Sample output
+### Sample output
 ```
 $ ./git-bash.sh 
 On Branch - * master
