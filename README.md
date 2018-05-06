@@ -2,7 +2,7 @@
 
 ## ut stands for untracked files.
 ##  nt stands for notstaged tracked files.
-##st stands for staged files.
+## st stands for staged files.
 
 ### Sample output
 ```
