@@ -23,6 +23,13 @@ gitnotstaged=($(git diff --name-only))
 #Get only untracked files
 gituntracked=($(git ls-files --others --exclude-standard))
 
+#print the clean message if all three arrays are empty.
+cleanmsg="nothing to commit, working directory clean"
+if [ ${#gitstaged[@]} == 0 ] && [ ${#gitnotstaged[@]} == 0 ] && [ ${#gituntracked[@]} == 0 ];
+  then
+  echo $cleanmsg
+fi
+
 if [ $# -ge 3 ];
 then
    #process comma seperated multiple files ie git add 1,2,3
@@ -119,9 +126,9 @@ gituntracked=($(git ls-files --others --exclude-standard))
 #print the staged files.
 for i in ${!gitstaged[@]}; do
    if [ $i -eq 0 ]; then 
-	echo "Changes to be committed:" 
+	   echo "Changes to be committed:" 
    fi
-   echo "${green}st$i - ${gitstaged[$i]}${reset}"
+    echo "${green}st$i - ${gitstaged[$i]}${reset}"
 done
 #print the changes not staged files.
 for i in ${!gitnotstaged[@]}; do
