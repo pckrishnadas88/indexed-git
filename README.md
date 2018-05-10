@@ -5,19 +5,24 @@
 ## st stands for staged files.
 
 ### Sample output
-```
-$ ./git-bash.sh 
-On Branch - * master
-Untracked files:
-ut0 - git-bash.sh
-ut1 - git-status.txt
-ut2 - test
+```bash
+#After a command has been executed it shows the updated status.
 
-$ ./git-bash.sh add ut 2
-On Branch - * master
-Changes to be committed:
-st0 - test
-Untracked files:
-ut0 - git-bash.sh
-ut1 - git-status.txt
+1. To Simply view the status execute the command without any args.
+  $ ./igit.sh 
+  Untracked files
+  ut0 - igit.sh
+  ut1 - git-status.txt
+  ut2 - test
+2. To add an untracked file(ut) run like this where 0 is the index from the previous command.
+  $./igit.sh add ut 0
+  Staged files
+  st0 - igit.sh
+  st1 - git-status.txt
+  Untracked files
+  ut0 - test
+3. To add multiple files using comma seperated method
+   $./igit.sh add ut 1,2,3  #Here 1, 2, 3 are the index of the files.
+4. To add multiple files using a range like 1..10 adds 10 files.
+  $./igit.sh add ut 1..10
 ```
