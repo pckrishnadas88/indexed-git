@@ -1,10 +1,9 @@
-# indexed-git - Add files to git using it's index ie not with it's filename.
+# indexed-git - Add/Remove files to git using it's file index ie not with it's filename.
 
 ## ut stands for untracked files.
-##  nt stands for notstaged tracked files.
+## nt stands for notstaged tracked files.
 ## st stands for staged files.
 
-### Sample output
 
 #### After a command has been executed it shows the updated status.
 
@@ -32,4 +31,8 @@
 4. To add multiple files using a range like 1..10 adds 10 files.
 ```
   $./igit.sh add ut 1..10
+```
+5. To view the help text simply pass the help as the arguement
+```
+$./igit.sh help
 ```
