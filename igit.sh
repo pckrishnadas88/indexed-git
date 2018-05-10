@@ -6,11 +6,50 @@
 #
 # Description: A simple script to manipulate git files.
 # TODO add more options and add Error Handlers. 
+# Need help for adding error handlers.
 
 #declare color variables
 red=`tput setaf 1`
 green=`tput setaf 2`
 reset=`tput sgr0`
+
+#prints the help message if $1 is help
+#TODO Nicely format the help and add more example.
+if [ "$1" == "help" ];
+  then
+  less << EndOfMessage
+IGIT - Indexed git for adding/removing git files using file list index not by it\'s name
+
+Author: Krishnadas P.C<pckrishnadas88@gmail.com>
+Repo: https://github.com/pckrishnadas88/indexed-git
+
+ut stands for untracked files.
+nt stands for notstaged tracked files.
+st stands for staged files.
+
+After a command has been executed it shows the updated status.
+
+1. To Simply view the status execute the command without any args.
+  $ ./igit.sh 
+  Untracked files
+  ut0 - igit.sh
+  ut1 - git-status.txt
+  ut2 - test
+2. To add an untracked file(ut) run like this where 0 is the index from the previous command.
+  $./igit.sh add ut 0
+  Staged files
+  st0 - igit.sh
+  st1 - git-status.txt
+  Untracked files
+  ut0 - test
+3. To add multiple files using comma seperated method
+   $./igit.sh add ut 1,2,3  #Here 1, 2, 3 are the index of the files.
+4. To add multiple files using a range like 1..10 adds 10 files.
+  $./igit.sh add ut 1..10
+EndOfMessage
+exit
+fi
+#end of help text section.
 
 #print the current git branch
 echo "On Branch - $(git branch)"
@@ -145,19 +184,3 @@ for i in ${!gituntracked[@]}; do
   echo "${red}ut$i - ${gituntracked[$i]}${reset}"
 done
 
-: 'Example how to:
-#$ ./git-bash.sh 
-Untracked files
-ut0 - git-bash.sh
-ut1 - git-status.txt
-ut2 - test
-$./git-bash.sh add ut 0
-Staged files
-st0 - git-bash.sh
-st1 - git-status.txt
-Untracked files
-ut0 - test
-ut stands for untracked files.
-nt stands for notstaged tracked files.
-st stands for staged files.
-'
